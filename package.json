@@ -1,0 +1,33 @@
+{
+  "name": "xiuye-content-creation-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "秀野内容创作系统：Agent-friendly local workflows for research, writing, animation, covers and publishing.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "doctor": "node scripts/doctor.mjs",
+    "job:prepare": "node scripts/prepare.mjs",
+    "prepare:demo": "node scripts/prepare.mjs --job examples/jobs/multi-world-editorial.demo.json",
+    "browser:ensure": "remotion browser ensure",
+    "studio": "remotion studio src/index.ts",
+    "preview": "node scripts/preview.mjs",
+    "render": "node scripts/render.mjs",
+    "verify": "node scripts/verify.mjs",
+    "typecheck": "tsc --noEmit",
+    "release:check": "node scripts/release-check.mjs",
+    "validate": "pnpm typecheck && pnpm release:check"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.419",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.419"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "typescript": "5.9.3"
+  }
+}

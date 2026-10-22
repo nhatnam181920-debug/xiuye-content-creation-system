@@ -1,0 +1,42 @@
+{
+  "version": "1",
+  "template": "multi-world-editorial",
+  "title": "A model-neutral content-video demo",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "brand": {"name": "秀野内容创作系统", "accent": "#C8FF42", "secondary": "#FF4A91"},
+  "presenter": {"cropX": 50, "cropY": 46, "scale": 1.35},
+  "scenes": [
+    {
+      "id": "hook", "kind": "hook", "world": "paper", "durationInFrames": 150,
+      "kicker": "OPENING / 01", "title": "一条口播，不能只有字幕", "subtitle": "把抽象内容变成看得见的动作与关系", "highlight": "看得见",
+      "presenterMode": "circle", "sourceStartFrame": 0,
+      "points": [{"label": "人", "detail": "保留连接"}, {"label": "动画", "detail": "解释关系"}, {"label": "节奏", "detail": "推进叙事"}]
+    },
+    {
+      "id": "three-worlds", "kind": "cards", "world": "academic", "durationInFrames": 180,
+      "kicker": "VISUAL WORLDS / 02", "title": "内容决定视觉世界", "subtitle": "不让整条视频困在同一套黑色卡片里",
+      "presenterMode": "none", "sourceStartFrame": 150,
+      "points": [{"label": "学术蓝", "detail": "深度与推演"}, {"label": "实践绿", "detail": "行动与落地"}, {"label": "商业金", "detail": "价值与交易"}]
+    },
+    {
+      "id": "workflow", "kind": "process", "world": "practice", "durationInFrames": 180,
+      "kicker": "WORKFLOW / 03", "title": "先预览，再渲染，再验收", "subtitle": "每一步都有可检查的产物",
+      "presenterMode": "circle", "sourceStartFrame": 330,
+      "points": [{"label": "PREPARE", "detail": "验证输入"}, {"label": "PREVIEW", "detail": "检查画面"}, {"label": "RENDER", "detail": "导出成片"}, {"label": "VERIFY", "detail": "完整解码"}]
+    },
+    {
+      "id": "agent-contract", "kind": "network", "world": "money", "durationInFrames": 180,
+      "kicker": "ONE CONTRACT / 04", "title": "不同 Agent，共用一份任务单", "subtitle": "判断交给模型，稳定执行交给工具",
+      "presenterMode": "none", "sourceStartFrame": 510,
+      "points": [{"label": "Codex"}, {"label": "Claude"}, {"label": "DeepSeek"}, {"label": "Remotion"}]
+    },
+    {
+      "id": "summary", "kind": "summary", "world": "paper", "durationInFrames": 150,
+      "kicker": "DELIVERY / 05", "title": "交付的是视频，不是方案", "subtitle": "整片、独立素材、预览与验收报告缺一不可", "highlight": "视频",
+      "presenterMode": "circle", "sourceStartFrame": 690,
+      "points": [{"label": "FULL CUT"}, {"label": "CLIPS"}, {"label": "QC"}]
+    }
+  ]
+}

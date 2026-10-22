@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/xiuye-content-creation-system/video-job.schema.json",
+  "title": "秀野内容创作系统—动画 video job",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "template", "title", "fps", "width", "height", "brand", "presenter", "scenes"],
+  "properties": {
+    "version": {"const": "1"},
+    "template": {"const": "multi-world-editorial"},
+    "title": {"type": "string", "minLength": 1, "maxLength": 120},
+    "inputVideo": {"type": "string"},
+    "subtitles": {"type": "string"},
+    "fps": {"type": "integer", "minimum": 24, "maximum": 60},
+    "width": {"type": "integer", "minimum": 1280, "maximum": 3840},
+    "height": {"type": "integer", "minimum": 720, "maximum": 2160},
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "accent", "secondary"],
+      "properties": {
+        "name": {"type": "string", "maxLength": 40},
+        "accent": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+        "secondary": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"}
+      }
+    },
+    "presenter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cropX", "cropY", "scale"],
+      "properties": {
+        "cropX": {"type": "number", "minimum": 0, "maximum": 100},
+        "cropY": {"type": "number", "minimum": 0, "maximum": 100},
+        "scale": {"type": "number", "minimum": 0.8, "maximum": 2.5}
+      }
+    },
+    "captions": {"type": "array", "items": {"$ref": "#/$defs/caption"}},
+    "scenes": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/scene"}}
+  },
+  "$defs": {
+    "caption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["startFrame", "endFrame", "text"],
+      "properties": {
+        "startFrame": {"type": "integer", "minimum": 0},
+        "endFrame": {"type": "integer", "minimum": 1},
+        "text": {"type": "string", "minLength": 1, "maxLength": 100}
+      }
+    },
+    "point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label"],
+      "properties": {
+        "label": {"type": "string", "minLength": 1, "maxLength": 24},
+        "detail": {"type": "string", "maxLength": 48}
+      }
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "world", "durationInFrames", "title", "presenterMode", "sourceStartFrame"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+        "kind": {"enum": ["hook", "cards", "process", "network", "summary"]},
+        "world": {"enum": ["paper", "academic", "practice", "money", "plum"]},
+        "durationInFrames": {"type": "integer", "minimum": 30, "maximum": 1800},
+        "kicker": {"type": "string", "maxLength": 32},
+        "title": {"type": "string", "minLength": 1, "maxLength": 48},
+        "subtitle": {"type": "string", "maxLength": 80},
+        "highlight": {"type": "string", "maxLength": 24},
+        "presenterMode": {"enum": ["full", "circle", "none"]},
+        "sourceStartFrame": {"type": "integer", "minimum": 0},
+        "points": {"type": "array", "maxItems": 5, "items": {"$ref": "#/$defs/point"}}
+      }
+    }
+  }
+}

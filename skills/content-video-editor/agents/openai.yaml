@@ -1,0 +1,7 @@
+interface:
+  display_name: "秀野内容创作系统—动画"
+  short_description: "把已粗剪口播编排为可验证的知识动画成片与独立素材包"
+  brand_color: "#C8FF42"
+  default_prompt: "Use $content-video-editor to turn my approved talking-head cut into preview frames, a verified final MP4, and independent animation clips."
+policy:
+  allow_implicit_invocation: true
